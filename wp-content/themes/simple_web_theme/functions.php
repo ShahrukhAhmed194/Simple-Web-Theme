@@ -3,9 +3,22 @@
 function simple_web_theme_support(){
     // adds dynamic theme support
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
     
 }
 add_action('after_setup_theme', 'simple_web_theme_support');
+
+function simple_web_theme_menus(){
+
+    $locations = array(
+        'primary' => "Primary Left SideBar",
+        'footer'  => "Footer Items"
+    );
+
+    register_nav_menus($locations);
+}
+add_action('init','simple_web_theme_menus');
 
 function simple_web_theme_register_styles() {
 
